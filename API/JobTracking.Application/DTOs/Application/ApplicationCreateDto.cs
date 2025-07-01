@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace JobTracking.Application.DTOs.Application
 {
-    internal class ApplicationCreateDto
+    public class ApplicationCreateDto
     {
+        [Required]
+        public int JobAdvertisementId { get; set; }
     }
 }

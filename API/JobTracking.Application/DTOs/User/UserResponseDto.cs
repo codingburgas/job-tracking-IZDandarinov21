@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using JobTracking.Domain.Enums;
 
 namespace JobTracking.Application.DTOs.User
 {
-    internal class UserResponseDto
+    public class UserResponseDto
     {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public string Username { get; set; }
+        public UserRole Role { get; set; }
+        public bool Succeeded { get; set; }
+        public object Errors { get; set; }
     }
 }

@@ -1,12 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using JobTracking.Domain.Enums;
+using JobTracking.Application.DTOs.JobAdvertisement;
 
 namespace JobTracking.Application.DTOs.Application
 {
-    internal class ApplicationResponseDto
+    public class ApplicationResponseDto
     {
+        public int Id { get; set; }
+        public int JobAdvertisementId { get; set; }
+        public JobAdvertisementResponseDto JobAdvertisement { get; set; }
+        public int UserId { get; set; }
+        public ApplicationStatus Status { get; set; }
+        public DateTime DateApplied { get; set; }
     }
 }

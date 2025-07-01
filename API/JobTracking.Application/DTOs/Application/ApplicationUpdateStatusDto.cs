@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using JobTracking.Domain.Enums;
 
 namespace JobTracking.Application.DTOs.Application
 {
-    internal class ApplicationUpdateStatusDto
+    public class ApplicationUpdateStatusDto
     {
+        [Required]
+        public ApplicationStatus Status { get; set; }
     }
 }

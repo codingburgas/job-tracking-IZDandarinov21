@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <h2>{{ isEditMode ? 'Edit Job Advertisement' : 'Add New Job Advertisement' }}</h2>
+  <form [formGroup]="jobAdForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+      <div *ngIf="jobAdForm.controls['title'].invalid && (jobAdForm.controls['title'].dirty || jobAdForm.controls['title'].touched)" class="text-danger">
+        <div *ngIf="jobAdForm.controls['title'].errors?.['required']">Title is required.</div>
+        <div *ngIf="jobAdForm.controls['title'].errors?.['maxlength']">Title cannot exceed 100 characters.</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="companyName" class="form-label">Company</label> 
+      <input type="text" class="form-control" id="companyName" formControlName="companyName">
+      <div *ngIf="jobAdForm.controls['companyName'].invalid && (jobAdForm.controls['companyName'].dirty || jobAdForm.controls['companyName'].touched)" class="text-danger">
+       
+        <div *ngIf="jobAdForm.controls['companyName'].errors?.['required']">Company is required.</div> 
+        <div *ngIf="jobAdForm.controls['companyName'].errors?.['maxlength']">Company cannot exceed 100 characters.</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input type="text" class="form-control" id="location" formControlName="location">
+      <div *ngIf="jobAdForm.controls['location'].invalid && (jobAdForm.controls['location'].dirty || jobAdForm.controls['location'].touched)" class="text-danger">
+        <div *ngIf="jobAdForm.controls['location'].errors?.['required']">Location is required.</div>
+        <div *ngIf="jobAdForm.controls['location'].errors?.['maxlength']">Location cannot exceed 100 characters.</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" formControlName="description" rows="3"></textarea>
+      <div *ngIf="jobAdForm.controls['description'].invalid && (jobAdForm.controls['description'].dirty || jobAdForm.controls['description'].touched)" class="text-danger">
+        <div *ngIf="jobAdForm.controls['description'].errors?.['required']">Description is required.</div>
+        <div *ngIf="jobAdForm.controls['description'].errors?.['maxlength']">Description cannot exceed 1000 characters.</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="requirements" class="form-label">Requirements</label>
+      <textarea class="form-control" id="requirements" formControlName="requirements" rows="3"></textarea>
+      <div *ngIf="jobAdForm.controls['requirements'].errors?.['maxlength']" class="text-danger">Requirements cannot exceed 1000 characters.</div>
+    </div>
+    <div class="mb-3">
+      <label for="responsibilities" class="form-label">Responsibilities</label>
+      <textarea class="form-control" id="responsibilities" formControlName="responsibilities" rows="3"></textarea>
+      <div *ngIf="jobAdForm.controls['responsibilities'].errors?.['maxlength']" class="text-danger">Responsibilities cannot exceed 1000 characters.</div>
+    </div>
+    <div class="mb-3">
+      <label for="benefits" class="form-label">Benefits</label>
+      <textarea class="form-control" id="benefits" formControlName="benefits" rows="3"></textarea>
+      <div *ngIf="jobAdForm.controls['benefits'].errors?.['maxlength']" class="text-danger">Benefits cannot exceed 1000 characters.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="jobAdForm.invalid">{{ isEditMode ? 'Update' : 'Add' }} Job Advertisement</button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="goBack()">Cancel</button>
+  </form>
+</div>

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
+using JobTracking.Application.DTOs.Application;
 
 namespace JobTracking.Application.Validators
 {
-    internal class ApplicationCreateDtoValidator
+    public class ApplicationCreateDtoValidator : AbstractValidator<ApplicationCreateDto>
     {
+        public ApplicationCreateDtoValidator()
+        {
+            RuleFor(x => x.JobAdvertisementId)
+                .GreaterThan(0)
+                .WithMessage("ID на обявата е задължително.");
+        }
     }
 }

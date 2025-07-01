@@ -1,0 +1,10 @@
+<div class="container mt-5">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to JobTracker!</h1>
+    <p class="lead">Your ultimate solution for tracking job applications.</p>
+    <hr class="my-4">
+    <p>Manage your job search efficiently and never miss an opportunity.</p>
+    <p *ngIf="!isLoggedIn">Please login or register to get started!</p>
+    <p *ngIf="isLoggedIn">You are logged in. Go to the <a routerLink="/dashboard">Dashboard</a> to manage your jobs.</p>
+  </div>
+</div>

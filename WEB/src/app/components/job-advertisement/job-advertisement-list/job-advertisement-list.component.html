@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <h2>Job Advertisements</h2>
+  <div class="mb-3">
+    <a routerLink="/job-advertisements/add" class="btn btn-primary">Add New Job Advertisement</a>
+  </div>
+
+  <div *ngIf="jobAdvertisements.length === 0" class="alert alert-info">
+    No job advertisements found.
+  </div>
+
+  <table class="table table-striped" *ngIf="jobAdvertisements.length > 0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of jobAdvertisements">
+        <td>{{ job.title }}</td>
+        <td>{{ job.company }}</td>
+        <td>{{ job.location }}</td>
+        <td>{{ job.description }}</td>
+        <td>
+          <a [routerLink]="['/job-advertisements/edit', job.id]" class="btn btn-warning btn-sm me-2">Edit</a>
+          <button (click)="deleteJobAdvertisement(job.id)" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

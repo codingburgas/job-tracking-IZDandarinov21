@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using JobTracking.Domain.Enums;
+using System;
 
 namespace JobTracking.Domain.Entities
 {
-    internal class Application
+    public class Application
     {
+        public int Id { get; set; }
+        public int JobAdvertisementId { get; set; }
+        public int UserId { get; set; }
+        public ApplicationStatus Status { get; set; }
+        public DateTime DateApplied { get; set; }
+
+        // Navigation properties
+        public JobAdvertisement JobAdvertisement { get; set; }
+        public User User { get; set; }
     }
 }

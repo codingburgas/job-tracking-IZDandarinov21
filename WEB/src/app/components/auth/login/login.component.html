@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3>Login</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" formControlName="username">
+              <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)" class="text-danger">
+                <div *ngIf="loginForm.controls['username'].errors?.['required']">Username is required.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" formControlName="password">
+              <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="text-danger">
+                <div *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</div>
+                <div *ngIf="loginForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters.</div>
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <p>Don't have an account? <a routerLink="/register">Register here</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

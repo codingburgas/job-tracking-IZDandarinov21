@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace JobTracking.Application.DTOs.User
 {
-    internal class UserLoginDto
+    public class UserLoginDto
     {
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string Password { get; set; }
     }
 }

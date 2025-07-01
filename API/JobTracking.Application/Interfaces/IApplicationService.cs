@@ -1,12 +1,16 @@
-﻿using System;
+﻿using JobTracking.Application.DTOs.Application;
+using JobTracking.Domain.Enums;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace JobTracking.Application.Interfaces
 {
-    internal interface IApplicationService
+    public interface IApplicationService
     {
+        Task<ApplicationResponseDto> ApplyForJobAsync(int userId, ApplicationCreateDto createDto);
+        Task<ApplicationResponseDto> UpdateApplicationStatusAsync(int applicationId, ApplicationUpdateStatusDto updateDto);
+        Task<IEnumerable<ApplicationResponseDto>> GetUserApplicationsAsync(int userId);
+        Task<IEnumerable<ApplicationResponseDto>> GetApplicationsForJobAdvertisementAsync(int jobAdvertisementId);
+        Task<ApplicationResponseDto> GetApplicationByIdAsync(int applicationId);
     }
 }

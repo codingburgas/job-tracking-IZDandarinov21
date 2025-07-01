@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-root',
-    imports: [CommonModule, RouterOutlet, TranslateModule],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-    standalone: true,
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent, CommonModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'job-training';
+  title = 'WEB';
 }
